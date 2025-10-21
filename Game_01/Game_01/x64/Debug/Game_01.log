@@ -1,0 +1,14 @@
+﻿  Źródło.cpp
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(25,22): warning C4129: „`”: nierozpoznana sekwencja ucieczki znaków
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(27,22): warning C4129: „-”: nierozpoznana sekwencja ucieczki znaków
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(31,22): warning C4129: „ ”: nierozpoznana sekwencja ucieczki znaków
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(32,22): warning C4129: „ ”: nierozpoznana sekwencja ucieczki znaków
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(89,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(90,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(91,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(92,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(93,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(98,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(205,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(207,31): warning C4101: "i": lokalna zmienna, do której nie istnieje odwołanie
+  Game_01.vcxproj -> D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\x64\Debug\Game_01.exe
