@@ -1,10 +1,10 @@
 ﻿  Źródło.cpp
-D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(24,10): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(111,10): warning C4309: "=": obcięcie stałej wartości
 D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(112,10): warning C4309: "=": obcięcie stałej wartości
 D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(113,10): warning C4309: "=": obcięcie stałej wartości
 D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(114,10): warning C4309: "=": obcięcie stałej wartości
 D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(115,10): warning C4309: "=": obcięcie stałej wartości
-D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(116,10): warning C4309: "=": obcięcie stałej wartości
-D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(121,10): warning C4309: "=": obcięcie stałej wartości
-D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(228,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(230,31): warning C4101: "i": lokalna zmienna, do której nie istnieje odwołanie
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(120,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(263,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\Game_01\Źródło.cpp(265,31): warning C4101: "i": lokalna zmienna, do której nie istnieje odwołanie
+  Game_01.vcxproj -> D:\POLIBUDA_CORE\S1 Programowanie C\Game_01\Game_01\x64\Debug\Game_01.exe

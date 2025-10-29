@@ -6,6 +6,12 @@
 #include <ctype.h>
 #include <stdio.h>
 
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
+using namespace std;
+
 void gotoxy(int x, int y) {
     COORD coord;
     coord.X = x;
@@ -17,21 +23,22 @@ void image() {
     gotoxy(0, 0);
     gotoxy(1, 1);
 
-    //const int sz = 255;
-    //char str[sz];
+    FILE* plik;
+    errno_t err;
+    char nazwa_obrazka[] = "Image.txt";
+    char znak;
 
-    FILE* fp;
-    fp = fopen("Image.txt", "r");
-
-    if (fp == NULL) {
+    err = fopen_s(&plik, nazwa_obrazka, "r");
+    if (err != 0 || plik == NULL) {
         printf("The file is not opened.");
     }
 
-    //while (fgets(str, sz, fp) != NULL) {
-    //    printf("%s", str);
-    //};
+    while ((znak = fgetc(plik)) != EOF) {
+        putchar(znak);
+    }
+    
+    fclose(plik);
 
-    Sleep(4000);
 }
 
 void ramka_ini(int w)
@@ -39,32 +46,24 @@ void ramka_ini(int w)
 
     int i;
     for (i = 1; i <= w; ++i) {
-        gotoxy(0, 0);
-        gotoxy(1, 1);
-        //printf("                     `. ___\n");
-        //printf("                    __,' __`.                _..----....___\n");
-        //std::cout << "        __...--.'``;.   ,.   ;``--..__     .'    ,-._     " << std::endl;
-        //std::cout << "  _..-''-------'   `'   `'   `'     O ``-''._   (,;') _,'" << std::endl;
-        //std::cout << ",'________________                          \`-._`-','" << std::endl;
-        //std::cout << " `._              ```````````------...___   '-.._'-:" << std::endl;
-        //std::cout << "    ```--.._      ,.                     ````--...__\-." << std::endl;
-        //std::cout << "            `.--. `-`                       ____    |  |`" << std::endl;
-        //std::cout << "              `. `.                       ,'`````.  ;  ;`" << std::endl;
-        //std::cout << "                `._`.        __________   `.      \'__/`" << std::endl;
-        //std::cout << "                   `-:._____/______/___/____`.     \  `" << std::endl;
-        //std::cout << "                               |       `._    `.    \ " << std::endl;
-        //std::cout << "                               `._________`-.   `.   `." << std::endl;
-        //std::cout << "                                             SSt  `------'`" << std::endl;
-        //std::cout << "                           " << std::endl;
+        
+
+
+        gotoxy(0, 10);
+        Sleep(1000);    
         std::cout << " Welcome to " << std::endl;
         std::cout << "           " << std::endl;
+        Sleep(1000);
         std::cout << " DEEP SPACE" << std::endl;
         std::cout << "  " << std::endl;
-        std::cout << " Loading in progress.." << std::endl;
-        std::cout << "  " << std::endl;
-  
-        //ZWIEKSZAM CZAS OCZEKIWANIA
-        Sleep(4000);
+        Sleep(1000);
+        std::cout << " Loading in progress";
+        Sleep(1000);
+        std::cout << ".";
+        Sleep(1000);
+        std::cout << ".";
+
+        Sleep(1000);
 
         for (int i = 25; i >= 0; i--) {
             gotoxy(1, i); printf("                                                          ");
@@ -137,13 +136,75 @@ int rnd() {
     return r;
 }
 
+//ENERGY counter
+void showPoints(int* p) {
+    gotoxy(25, 1);
+    const int punktyMax = 10;
 
-//POCISK
+    printf("WARP ENERGY LEVEL:");
+    printf("[");
+
+    // Wype³nione miejsca
+    for (int i = 0; i < punktyMax; i++) {
+        if (i < *p)
+            printf("O");
+        else
+            printf("X");  // puste miejsce
+    }
+
+    printf("]\n");
+}
+//ganme endings
+
+void outro(int* gratrwa) {
+ 
+    gotoxy(0, 3);
+
+    FILE* plik2;
+    errno_t err;
+    char nazwa_obrazka[] = "Image_end.txt";
+    char znak;
+
+    err = fopen_s(&plik2, nazwa_obrazka, "r");
+    if (err != 0 || plik2 == NULL) {
+        printf("The file is not opened.");
+    }
+
+    while ((znak = fgetc(plik2)) != EOF) {
+        putchar(znak);
+    }
+
+    fclose(plik2);
+
+    Sleep(2000);
+    gotoxy(40, 40);
+    *gratrwa = 0;
+}
+
+void gameOver(int *gratrwa, int *p) {
+    outro(&*gratrwa);
+    gotoxy(20, 15);
+    printf("GAME OVER");
+    gotoxy(20, 18);
+    printf("Your total score is %d\n", *p);
+    Sleep(4000);
+    *gratrwa = 0;
+}
+
+void youWon(int* gratrwa, int* p) {
+    outro(&*gratrwa);
+    gotoxy(20, 15);
+    printf("YOU HAVE REACHED THE EARTH");
+    gotoxy(20, 18);
+    printf("Your total score is %d\n", *p);
+    Sleep(4000);
+    *gratrwa = 0;
+}
+
+
+//STAEK, PRZECIWNICY, ENERGY
 void ruch(int* x, int* y, int* vx, int* vy, int* xp, int* yp, int* vxp, int* gratrwa, int* xo, int* yo, int* vyo, int* p) {
     
-
-    gotoxy(20, 1);
-    printf("POINTS %d\n", *p);
 
     char ch = ' ';
 
@@ -172,25 +233,16 @@ void ruch(int* x, int* y, int* vx, int* vy, int* xp, int* yp, int* vxp, int* gra
     if ((*xp > 64) || (*xp < 3)) *vxp = -(*vxp);
     if ((*yo == *yp) && ((*xo >= *xp) && (*xo <= *xp + 6))) {
         (*p)++;
-        gotoxy(20, 1);
-        printf("POINTS %d\n", *p);
+        showPoints(&*p);
+
     }
     if ((*y == *yp) && ((*x >= *xp) && (*x <= *xp + 6))){
-        gotoxy(20, 1);
-        printf("GAME OVER");
-        gotoxy(20, 3);
-        printf("Your total score is %d\n", *p);
-        Sleep(2000);
-        *gratrwa = 0;
+        gameOver(&*gratrwa, &*p);
+
     }
     
-    if (*p > 19) {
-        gotoxy(20, 1);
-        printf("YOU HAVE REACHED THE EARTH");
-        gotoxy(20, 3);
-        printf("Your total score is %d\n", *p);
-        Sleep(2000);
-        *gratrwa = 0;
+    if (*p > 9) {
+        youWon(&*gratrwa, &*p);
     }
 
 }
@@ -204,24 +256,7 @@ char klawiatura(int* vxp) {
     return ch;
 }
 
-void outro(int* gratrwa) {
-    gotoxy(40, 8);
-    printf("            _____\n");
-    printf("        ,-:` n;',`'-, \n");
-    printf("      .'-;_,;  ':-;_,'.\n");
-    printf("     /;   '/    ,  _`.-n \n");
-    printf("    | '`. (`     /` ` n`|\n");
-    printf("    |:.  `n`-.   n_   / |\n");
-    printf("    |     (   `,  .`n ;'|\n");
-    printf("     n     | .'     `-'/\n");
-    printf("     `.   ;/        .'\n");
-    printf("       `'-._____.\n");
-    gotoxy(40, 20);
-    printf("Earth...");
-    gotoxy(40, 40);
-    Sleep(2000);
-    *gratrwa = 0;
-}
+
 
 int main() {
     int p = 0;
@@ -231,14 +266,19 @@ int main() {
     x = 10; y = 10;
     char ch = ' ';
     int gratrwa = 1;
+
     image();
     ramka_ini(1);
     ramka_ini2(5);
     ramka();
+
+
     while ((ch != 'q') && (gratrwa == 1)) {
+
+        
         ruch(&x, &y, &vx, &vy, &xp, &yp, &vxp, &gratrwa, &xo, &yo , &vyo, &p);
         ch = klawiatura(&vxp); 
         
     }
-    outro(&gratrwa);
+    
 }
