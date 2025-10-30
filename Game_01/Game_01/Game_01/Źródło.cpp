@@ -43,7 +43,7 @@ void image() {
 
 void ramka_ini(int w)
 {
-
+    image();
     int i;
     for (i = 1; i <= w; ++i) {
         
@@ -143,7 +143,7 @@ void showPoints(int* p) {
 
     printf("WARP ENERGY LEVEL:");
     printf("[");
-
+    // punkty_gorne[1]  //tab[1]
     // Wype³nione miejsca
     for (int i = 0; i < punktyMax; i++) {
         if (i < *p)
@@ -202,6 +202,23 @@ void youWon(int* gratrwa, int* p) {
 }
 
 
+//Punkty do zbierania
+void plansza(int ekran[80][20]) {
+    int i, j;
+    for (i = 0; i < 20; i++)
+        for (j = 0; j < 70; j++) {
+            ekran[j][i] = 0;
+        }
+    for (int i = 4; i < 6; i++)
+        for (int j = 4; j < 70; j++) {
+            ekran[j][i] = 2;
+        }
+    for (int i = 15; i < 16; i++)
+        for (int j = 40; j < 70; j++) {
+            ekran[j][i] = 1;
+        }
+}
+
 //STAEK, PRZECIWNICY, ENERGY
 void ruch(int* x, int* y, int* vx, int* vy, int* xp, int* yp, int* vxp, int* gratrwa, int* xo, int* yo, int* vyo, int* p) {
     
@@ -256,9 +273,20 @@ char klawiatura(int* vxp) {
     return ch;
 }
 
+void menu() {
+    printf("******* DEEP SPACE ******** \n");
+    printf("\n");
+    printf("1 - Name \n");
+    printf("2 - Raport \n");
+    printf("3 - Play \n");
+    printf("4 - Exit \n");
+    printf("5 - RESET \n");
+    printf("6 - Read data \n");
+    printf("\n");
+    printf("Press number to choose option");
+}
 
-
-int main() {
+void gra() {
     int p = 0;
     srand(time(NULL));
     rnd();
@@ -267,18 +295,55 @@ int main() {
     char ch = ' ';
     int gratrwa = 1;
 
-    image();
-    ramka_ini(1);
-    ramka_ini2(5);
+    
+    
     ramka();
-
+    int ekran[80][20];
+    plansza(ekran);
 
     while ((ch != 'q') && (gratrwa == 1)) {
 
-        
-        ruch(&x, &y, &vx, &vy, &xp, &yp, &vxp, &gratrwa, &xo, &yo , &vyo, &p);
-        ch = klawiatura(&vxp); 
-        
+
+        ruch(&x, &y, &vx, &vy, &xp, &yp, &vxp, &gratrwa, &xo, &yo, &vyo, &p);
+        ch = klawiatura(&vxp);
+
     }
-    
+
 }
+
+int main() {
+   
+    char choice;
+
+    ramka_ini(1);
+
+    int r = 1;
+    while (r == 1) {
+        menu();
+        scanf_s("%c", &choice);
+        system("CLS");
+
+        switch (choice)
+        {
+        case('1'):
+            break;
+        case('2'):
+            break;
+        case('3'): 
+        {
+            gra();
+            break;
+        }
+        case('4'):
+            r = 0;
+            break;
+        default:
+            break;
+        }
+    }
+
+
+
+}
+
+// korekta: tablica ma byæ ze wskazywaniem konkretnego indeksu, menu odpalane casami, wprowadzanie imienia, pi³ka ma sie odbijac od paletki, pi³ki maj¹ byæ w funkcji, kilka pi³eczek
