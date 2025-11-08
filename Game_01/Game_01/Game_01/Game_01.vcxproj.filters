@@ -22,5 +22,9 @@
   <ItemGroup>
     <Text Include="Image.txt" />
     <Text Include="Image_end.txt" />
+    <Text Include="stream.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data2.dat" />
   </ItemGroup>
 </Project>

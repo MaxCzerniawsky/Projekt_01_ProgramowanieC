@@ -1,18 +1,10 @@
 ﻿  Źródło.cpp
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(111,10): warning C4309: '=': truncation of constant value
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(112,10): warning C4309: '=': truncation of constant value
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(113,10): warning C4309: '=': truncation of constant value
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(114,10): warning C4309: '=': truncation of constant value
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(115,10): warning C4309: '=': truncation of constant value
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(120,10): warning C4309: '=': truncation of constant value
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(291,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(293,31): warning C4101: 'i': unreferenced local variable
-C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(323,17): warning C4473: 'scanf_s' : not enough arguments passed for format string
-      C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(323,17):
-      placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-      C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(323,17):
-      the missing variadic argument 2 is required by format string '%c'
-      C:\Users\S346-13\Documents\Max\Game_01\Game_01\Game_01\Źródło.cpp(323,17):
-      this argument is used as a buffer size
-  
-  Game_01.vcxproj -> C:\Users\S346-13\Documents\Max\Game_01\Game_01\x64\Debug\Game_01.exe
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(111,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(112,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(113,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(114,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(115,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(120,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(280,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(282,31): warning C4101: "i": lokalna zmienna, do której nie istnieje odwołanie
+  Game_01.vcxproj -> D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\x64\Debug\Game_01.exe

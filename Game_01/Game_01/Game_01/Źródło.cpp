@@ -273,18 +273,7 @@ char klawiatura(int* vxp) {
     return ch;
 }
 
-void menu() {
-    printf("******* DEEP SPACE ******** \n");
-    printf("\n");
-    printf("1 - Name \n");
-    printf("2 - Raport \n");
-    printf("3 - Play \n");
-    printf("4 - Exit \n");
-    printf("5 - RESET \n");
-    printf("6 - Read data \n");
-    printf("\n");
-    printf("Press number to choose option");
-}
+
 
 void gra() {
     int p = 0;
@@ -311,25 +300,82 @@ void gra() {
 
 }
 
+//MENU
+void menu() {
+    gotoxy(0, 5);
+    printf("    ******* ");
+    printf("DEEP SPACE");
+    printf(" ******** \n");
+    printf("\n");
+    printf("    1 - Name \n");
+    printf("    2 - Raport \n");
+    printf("    3 - Play \n");
+    printf("    4 - Exit \n");
+    printf("    5 - RESET \n");
+    printf("    6 - Read data \n");
+    printf("\n");
+    gotoxy(0, 0);
+    ramka();
+    gotoxy(4, 15);
+    printf("    Press number to choose option");
+}
+
+
+
 int main() {
-   
+    struct dd {
+        int p;
+        char t[20];
+    };
+    dd rr;
+    dd baza[30];
+
+    FILE* stream = NULL;
+    errno_t err;
+    char tekst[20] = " ";
     char choice;
+    int r = 1, i = 0;
 
     ramka_ini(1);
 
-    int r = 1;
     while (r == 1) {
         menu();
-        scanf_s("%c", &choice);
+        scanf_s("%c", &choice, 1);
         system("CLS");
 
         switch (choice)
         {
         case('1'):
+            gotoxy(25, 6); printf("Podaj imie -> ");
+            scanf_s("%s", tekst, (unsigned)_countof(tekst));
+            system("CLS");
             break;
         case('2'):
+        {
+            err = fopen_s(&stream, "data2.dat", "r");
+            if (err != 0 || stream == NULL) {
+                printf("Nie udalo sie otworzyc pliku data2.dat!\n");
+                printf("Nacisnij dowolny przycisk...");
+                while (!_kbhit()) {}
+                break;
+            }
+
+            printf("=== RAPORT WYNIKOW ===\n\n");
+
+            int liczba1;
+            char temp_tekst[20];
+            
+            while (fscanf_s(stream, "%d %19s", &liczba1, temp_tekst, (unsigned)_countof(temp_tekst)) == 2) {
+                printf("%d %s\n", liczba1, temp_tekst);
+            }
+
+            fclose(stream);
+
+            printf("\nNacisnij dowolny przycisk...");
+            while (!_kbhit()) {}
             break;
-        case('3'): 
+        }
+        case('3'):
         {
             gra();
             break;
@@ -337,13 +383,56 @@ int main() {
         case('4'):
             r = 0;
             break;
+        case('5'):
+        {
+            err = fopen_s(&stream, "data2.dat", "r");
+            if (err != 0 || stream == NULL) {
+                printf("Nie udalo sie otworzyc pliku data2.dat!\n");
+                printf("Nacisnij dowolny przycisk...");
+                while (!_kbhit()) {}
+                break;
+            }
+
+            i = 0;
+            while (fscanf_s(stream, "%d %19s", &baza[i].p, baza[i].t, (unsigned)_countof(baza[i].t)) == 2) {
+                i++;
+                if (i >= 30) break; 
+            }
+            fclose(stream);
+
+            printf("Przed sortowaniem:\n");
+            for (int j = 0; j < i; j++) {
+                printf("%d %s\n", baza[j].p, baza[j].t);
+            }
+
+            
+            int k, j;
+            for (k = 0; k < i - 1; k++) {
+                for (j = 0; j < i - k - 1; j++) {
+                    if (baza[j].p < baza[j + 1].p) {
+                        rr = baza[j];
+                        baza[j] = baza[j + 1];
+                        baza[j + 1] = rr;
+                    }
+                }
+            }
+
+            printf("\nPo sortowaniu:\n");
+            for (int j = 0; j < i; j++) {
+                printf("%d %s\n", baza[j].p, baza[j].t);
+            }
+            printf("\nNacisnij dowolny przycisk...");
+            while (!_kbhit()) {}
+            break;
+        }
         default:
             break;
         }
+        
+        while (getchar() != '\n');
     }
 
-
-
+    return 0;
 }
 
 // korekta: tablica ma byæ ze wskazywaniem konkretnego indeksu, menu odpalane casami, wprowadzanie imienia, pi³ka ma sie odbijac od paletki, pi³ki maj¹ byæ w funkcji, kilka pi³eczek
