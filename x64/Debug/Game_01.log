@@ -1,0 +1,9 @@
+﻿  Źródło.cpp
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(76,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(77,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(78,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(79,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(80,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(85,10): warning C4309: "=": obcięcie stałej wartości
+D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\Game_01\Źródło.cpp(442,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  Game_01.vcxproj -> D:\POLIBUDA_CORE\S1 Programowanie Cb\Game_01\Game_01\x64\Debug\Game_01.exe
